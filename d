@@ -23,11 +23,6 @@ public:
 		cout << "Contingut: " << contingut << endl;
 	}
 
-	string getname() { return nom; }
-	float getcap() { return capacitat; }
-	float getcont() { return contingut; }
-
-	
 	float carregarDiposit(float litres2) {
 		float litresomplir = litres2;
 		if ((litresomplir + contingut) > capacitat) {
@@ -36,12 +31,11 @@ public:
 		else {
 			contingut = litresomplir + contingut;
 		}
-		cout << "Contingut: " << contingut << endl;	//VERIFICAR
+		//VERIFICAR
+		cout << "Contingut: " << contingut << endl;	
 
 		return litresomplir;
 	}
-
-
 
 };
 
@@ -81,21 +75,17 @@ public:
 			import_vendes_acum = import_vendes_acum + (preuvenda*litresvenuts);
 		}
 
+		//VERIFICAR
+
 		cout << "Contingut: " << contingut << endl;
 		cout << "Litres subministrats: " << Lsubministrats << endl;
-		cout << "Import vendes: " << import_vendes_acum << endl;		//VERIFICAR
+		cout << "Import vendes: " << import_vendes_acum << endl;		
 
 		return litresvenuts;
 	}
 
 	void transferirCombustible(float litres, gasoil* dip) {
-		/*float litres_trans_dispo; // litres que es podran transferir segons disponibilitat
-		float litres_trans_cap; // litres que es podran transferir a dip segons la seva capacitat
-		litres_trans_dispo = subministrarCombustible(litres);
-		litres_trans_cap = dip->carregarDiposit(litres_trans_dispo);
-		if (litres_trans_cap < litres_trans_dispo) {
-		this->carregarDiposit(litres_trans_dispo - litres_trans_cap);
-		}*/
+	
 		float litres1 = litres;
 		float verifyhayL = 0;
 		float verifyhayCap = 0;
@@ -111,17 +101,12 @@ public:
 		}
 
 		else cout << "Capacitats inadequades per fer la transferencia " << endl;
-
-		/*contingut = contingut - litres1;
-		Lsubministrats = Lsubministrats + litres1;
-		dip->contingut = dip->contingut + litres1;*/
-
-
-
+	
+		//VERIFICAR
 
 		cout << "Diposit: " << nom << endl;
 		cout << "Contingut: " << contingut << endl;
-		cout << "Litres subministrats: " << Lsubministrats << endl;		//VERIFICAR
+		cout << "Litres subministrats: " << Lsubministrats << endl;		
 		cout << endl;
 		cout << "Diposit: " << dip->nom << endl;
 		cout << "Contingut: " << dip->contingut << endl;
@@ -164,22 +149,17 @@ public:
 			Lsubministrats = Lsubministrats + litresvenuts;
 			import_vendes_acum = import_vendes_acum + (preuvenda*litresvenuts);
 		}
+		//VERIFICAR
 
-		cout << "Contingut: " << getcont() << endl;
+		cout << "Contingut: " << contingut << endl;
 		cout << "Litres subministrats: " << Lsubministrats << endl;
-		cout << "Import vendes: " << import_vendes_acum << endl;		//VERIFICAR
+		cout << "Import vendes: " << import_vendes_acum << endl;		
 
 		return litresvenuts;
 	}
 
 	void transferirCombustible(float litres, benzina* dip) {
-		/*float litres_trans_dispo; // litres que es podran transferir segons disponibilitat
-		float litres_trans_cap; // litres que es podran transferir a dip segons la seva capacitat
-		litres_trans_dispo = subministrarCombustible(litres);
-		litres_trans_cap = dip->carregarDiposit(litres_trans_dispo);
-		if (litres_trans_cap < litres_trans_dispo) {
-		this->carregarDiposit(litres_trans_dispo - litres_trans_cap);
-		}*/
+	
 		float litres1 = litres;
 		float verifyhayL = 0;
 		float verifyhayCap = 0;
@@ -196,16 +176,11 @@ public:
 
 			else cout << "Capacitats inadequades per fer la transferencia " << endl;
 			
-			/*contingut = contingut - litres1;
-			Lsubministrats = Lsubministrats + litres1;
-			dip->contingut = dip->contingut + litres1;*/
-
+			//VERIFICAR
 		
-		
-
 			cout << "Diposit: " << nom << endl;
 			cout << "Contingut: " << contingut << endl;
-			cout << "Litres subministrats: " << Lsubministrats << endl;		//VERIFICAR
+			cout << "Litres subministrats: " << Lsubministrats << endl;		
 			cout << endl;
 			cout << "Diposit: " << dip->nom << endl;
 			cout << "Contingut: " << dip->contingut << endl;
@@ -248,11 +223,11 @@ int main() {
 		if (dipo == 1)		d1.subministrarCombustible(litres);
 		else if (dipo == 2)	d2.subministrarCombustible(litres);
 		else if (dipo == 3)	d3.subministrarCombustible(litres);
-		else cout << "No existeix el diposit seleccionat!" << endl;
+		else cout << "Error de seleccio" << endl;
 		break;
 
 	case 'o':
-		cout << "Litres a carregar: ";
+		cout << "Litres a omplir: ";
 		cin >> litres2;
 		cout << "De quin diposit? (1, 2, o 3): ";
 		cin >> dipo2;
@@ -260,7 +235,7 @@ int main() {
 		if (dipo2 == 1)		    d1.carregarDiposit(litres2);
 		else if (dipo2 == 2)	d2.carregarDiposit(litres2);
 		else if (dipo2 == 3)	d3.carregarDiposit(litres2);
-		else cout << "No existeix el diposit seleccionat!" << endl;
+		else cout << "Error de seleccio" << endl;
 		break;
 
 	case 't':
@@ -268,7 +243,7 @@ int main() {
 		cin >> litres;
 		cout << "Diposit d'origen? (1, 2, o 3): ";
 		cin >> dip1;
-		cout << "Diposit a carregar (1, 2, o 3): ";
+		cout << "Diposit a omplir (1, 2, o 3): ";
 		cin >> dip2;
 		cout << endl;
 
@@ -277,7 +252,6 @@ int main() {
 		else if (dip1 == 3 || dip2 == 3) cout << "Els diposits son de combustibles diferents" << endl;
 		else if (dip1 == 1) d1.transferirCombustible(litres, &d2); //del 1 al 2
 		else d2.transferirCombustible(litres, &d1); //del 2 al 1
-
 		
 	case 's':
 		break;
